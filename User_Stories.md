@@ -154,4 +154,116 @@ Como um jogador, eu quero poder ter uma chance de dar dano crítico ao atacar me
         <td>Ataque Especial</td>
     </tr>
 </table>
+    <table border="1">
+    <tr>
+        <td colspan="2">Classe: Personagem</td>
+    </tr>
+    <tr>
+        <td>Responsabilidades:</td>
+        <td>Colaborações:</td>
+    </tr>
+    <tr>
+        <td>Classe</td>
+        <td>Classe_Personagem</td>
+    </tr>
+    <tr>
+        <td>Chance de Crítico</td>
+        <td>Classe_Personagem</td>
+    </tr>
+    <tr>
+        <td>Evoluir</td>
+        <td>Classe_Personagem</td>
+    </tr>
+    <tr>
+        <td>Nome</td>
+    </tr>
+    <tr>
+        <td>História</td>
+    </tr>
+    <tr>
+        <td>Nível</td>
+    </tr>
+</table>
+<table border="1">
+    <tr>
+        <td colspan="2">Classe: Inimigo</td>
+    </tr>
+    <tr>
+        <td>Responsabilidades:</td>
+        <td>Colaborações:</td>
+    </tr>
+    <tr>
+        <td>Classe</td>
+        <td>Classe_Personagem</td>
+    </tr>
+    <tr>
+        <td>Nome</td>
+    </tr>
+    <tr>
+        <td>Nível</td>
+    </tr>
+</table>
+
+<table border="1">
+    <tr>
+        <td colspan="2">Classe: Menu</td>
+    </tr>
+    <tr>
+        <td>Responsabilidades:</td>
+        <td>Colaborações:</td>
+    </tr>
+    <tr>
+        <td>Mostrar as opções de jogo</td>
+    </tr>
+    <tr>
+        <td>Escolher a dificuldade do jogo</td>
+    </tr>
+    <tr>
+        <td>Mostrar opção de iniciar o jogo</td>
+    </tr>
+</table>
+
+<table border="1">
+    <tr>
+        <td colspan="2">Classe: Interface</td>
+    </tr>
+    <tr>
+        <td>Responsabilidades:</td>
+        <td>Colaborações:</td>
+    </tr>
+    <tr>
+        <td>Mostrar a vida do jogador</td>
+        <td>Personagem</td>
+    </tr>
+    <tr>
+        <td>Mostrar os ataques disponíveis</td>
+        <td>Personagem</td>
+    </tr>
+    <tr>
+        <td>Mostrar os itens disponíveis</td>
+        <td>Mochila</td>
+    </tr>
+    <tr>
+        <td>Mostrar a vida do robô</td>
+        <td>Inimigo</td>
+    </tr>
+</table>
+    
+  <table border="1">
+    <tr>
+        <td colspan="2">Classe: Robo</td>
+    </tr>
+    <tr>
+        <td>Responsabilidades:</td>
+        <td>Colaborações:</td>
+    </tr>
+    <tr>
+        <td>Atacar o personagem</td>
+        <td>Inimigo</td>
+    </tr>
+    <tr>
+        <td>Utilizar itens</td>
+        <td>Mochila</td>
+    </tr>
+</table>
  </div>

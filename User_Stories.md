@@ -80,3 +80,78 @@ Como um jogador, eu quero poder ter uma chance de dar dano crítico ao atacar me
 ### Critérios de Aceitação
 - Ver uma mensagem no console se o acerto foi crítico ou não;
 - Ver o dano a mais causado no oponente;
+
+
+## Cartão CRC
+
+<div>
+<table border="1">
+    <tr>
+        <td colspan="2">Classe: Classe_Personagem</td>
+    </tr>
+    <tr>
+        <td colspan="2">Subclasses: Mago, Guerreiro, Ladino</td>
+    </tr>
+    <tr>
+        <td>Responsabilidades:</td>
+        <td>Colaborações:</td>
+    </tr>
+    <tr>
+        <td>Ataque</td>
+        <td>Personagem</td>
+    </tr>
+    <tr>
+        <td>Vida</td>
+        <td>Personagem</td>
+    </tr>
+    <tr>
+        <td>Defesa</td>
+        <td>Personagem</td>
+    </tr>
+    <tr>
+        <td>Destreza</td>
+        <td>Personagem</td>
+    </tr>
+    <tr>
+        <td>Itens</td>
+        <td>Mochila</td>
+    </tr>
+</table>
+
+<table border="1">
+    <tr>
+        <td colspan="2">Classe: Mago</td>
+    </tr>
+    <tr>
+        <td>Responsabilidades:</td>
+        <td>Colaborações:</td>
+    </tr>
+    <tr>
+        <td>Ataque Especial</td>
+    </tr>
+</table>
+<table border="1">
+    <tr>
+        <td colspan="2">Classe: Guerreiro</td>
+    </tr>
+    <tr>
+        <td>Responsabilidades:</td>
+        <td>Colaborações:</td>
+    </tr>
+    <tr>
+        <td>Ataque Especial</td>
+    </tr>
+</table>
+<table border="1">
+    <tr>
+        <td colspan="2">Classe: Ladino</td>
+    </tr>
+    <tr>
+        <td>Responsabilidades:</td>
+        <td>Colaborações:</td>
+    </tr>
+    <tr>
+        <td>Ataque Especial</td>
+    </tr>
+</table>
+ </div>

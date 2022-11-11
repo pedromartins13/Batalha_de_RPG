@@ -24,9 +24,9 @@ private:
     string história;
 
 public:
-    Personagem(string _nome, string _historia, int _ataque, int _defesa, int _inteligencia, int _constituicao);
-    ~Personagem();
-
+    Personagem(string _nome, int _ataque, int _defesa, int _inteligencia, int _constituicao, Classe _classe);
+    Personagem(string _nome, string _historia, int _ataque, int _defesa, int _inteligencia, int _constituicao, Classe _classe);
+    Personagem();
     void levelUp();
 
     // Getters e Setters
@@ -39,7 +39,10 @@ public:
     void setDestreza(int _des);
     void setInteligencia(int _int);
     void setConstituição(int _con);
-    void setClasse(Classe _classe);
+    virtual void setLevel(int _lvl);
+    void setNome(string _nome);
+    void setHistoria(string _historia);
+    void setClasse(Classe classe);
 
     int getVida();
     int getMana();

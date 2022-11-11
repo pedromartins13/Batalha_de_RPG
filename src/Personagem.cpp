@@ -1,7 +1,7 @@
 #include <Personagem.hpp>
 #include <Interface.hpp>
 
-Personagem::Personagem(string _nome, string _historia, int _ataque, int _defesa, int _inteligencia, int _constituicao)
+Personagem::Personagem(string _nome, string _historia, int _ataque, int _defesa, int _inteligencia, int _constituicao, Classe _classe)
 {
 
     this->nome = _nome;
@@ -14,7 +14,30 @@ Personagem::Personagem(string _nome, string _historia, int _ataque, int _defesa,
     this->mana = 100 + (10 * (this->inteligencia));
     this->level = 1;
     this->experiencia = 0;
+
+    this->classe = _classe;
 };
+
+Personagem::Personagem(string _nome, int _ataque, int _defesa, int _inteligencia, int _constituicao, Classe _classe)
+{
+    this->setNome(_nome);
+    this->setAtaque(_ataque);
+    this->setDefesa(_defesa);
+    this->setInteligencia(_inteligencia);
+    this->setConstituição(_constituicao);
+    this->setClasse(_classe);
+};
+Personagem::Personagem()
+{
+    Classe aux;
+    this->setNome("");
+    this->setHistoria("");
+    this->setAtaque(0);
+    this->setDefesa(0);
+    this->setInteligencia(0);
+    this->setConstituição(0);
+    this->setClasse(aux);
+}
 
 void Personagem::levelUp()
 {
@@ -59,9 +82,17 @@ void Personagem::setConstituição(int _con)
 {
     this->constituição = _con;
 }
+void Personagem::setNome(string _nome)
+{
+    this->nome = _nome;
+}
 void Personagem::setClasse(Classe _classe)
 {
     this->classe = _classe;
+}
+void Personagem::setHistoria(string _historia)
+{
+    this->história = _historia;
 }
 
 int Personagem::getVida()
@@ -99,4 +130,8 @@ int Personagem::getConstituição()
 int Personagem::getLevel()
 {
     return this->level;
+}
+Classe Personagem::getClasse()
+{
+    return this->classe;
 }

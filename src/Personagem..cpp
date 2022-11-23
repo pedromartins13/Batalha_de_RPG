@@ -20,6 +20,26 @@ Personagem::Personagem(std::string nome, std::string _historia, int _DES, int _I
     this->experiencia = 0;
 };
 
+Personagem::Personagem()
+{
+    this->nome = "";
+    this->historia = "";
+    this->Classe_Personagem = NULL;
+
+    this->DES = 0;
+    this->INT = 0;
+    this->CON = 0;
+    this->FOR = 0;
+
+    this->ataque = 0;
+    this->defesa = 0;
+    this->vida = 0;
+    this->mana = 0;
+
+    this->level = 1;
+    this->experiencia = 0;
+}
+
 Personagem::~Personagem(){};
 void Personagem::setVida(int _vida)
 {
@@ -59,6 +79,11 @@ void Personagem::setClasse(Classe *_classe)
     this->Classe_Personagem = _classe;
 }
 
+void Personagem::setNome(std::string _nome)
+{
+    this->nome = _nome;
+}
+
 int Personagem::getVida()
 {
     return this->vida;
@@ -94,6 +119,10 @@ int Personagem::getCON()
 int Personagem::getLVL()
 {
     return this->level;
+}
+std::string Personagem::getNome()
+{
+    return this->nome;
 }
 Classe *Personagem::getClasse()
 {

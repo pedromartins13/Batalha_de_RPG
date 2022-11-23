@@ -16,6 +16,7 @@ private:
 
 public:
     Personagem(std::string nome, std::string _historia, int _DES, int _INT, int _CON, int _FOR, Classe *_Classe);
+    Personagem();
     ~Personagem();
 
     void setAtaque(int _ataque);
@@ -29,6 +30,7 @@ public:
     void setLVL(int _LVL);
     void setEXP(int _EXP);
     void setClasse(Classe *_Classe);
+    void setNome(std::string _nome);
 
     int getAtaque();
     int getDefesa();
@@ -40,6 +42,7 @@ public:
     int getFOR();
     int getLVL();
     int getEXP();
+    std::string getNome();
     Classe* getClasse();
 };
 #endif

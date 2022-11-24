@@ -3,6 +3,9 @@
 
 #include "../lib/Personagem.hpp"
 
-Personagem Criar_Personagem();
+Personagem Criar_Personagem(Classe *_Mago, Classe *_Guerreiro, Classe *_Ladino);
+
+int menuInicial();
+void LimparTela();
 
 #endif

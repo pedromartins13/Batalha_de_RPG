@@ -1,10 +1,7 @@
 #include "../lib/Interface.hpp"
 
-Personagem Criar_Personagem()
+Personagem Criar_Personagem(Classe *_Mago, Classe *_Guerreiro, Classe *_Ladino)
 {
-    Classe Mago("Mago");
-    Classe Guerreiro("Guerreiro");
-    Classe Ladino("Ladino");
 
     std::string nome, historia;
 
@@ -16,7 +13,7 @@ Personagem Criar_Personagem()
     std::cout << "Qual a sua história, de onde você veio?" << std::endl;
     std::cin >> historia;
 
-    Classe Escolha;
+    Classe *Escolha;
 
     int parada = 0;
     int escolha = 0;
@@ -32,15 +29,15 @@ Personagem Criar_Personagem()
         switch (escolha)
         {
         case 1:
-            Escolha = Mago;
+            Escolha = _Mago;
             parada = 1;
             break;
         case 2:
-            Escolha = Guerreiro;
+            Escolha = _Guerreiro;
             parada = 1;
             break;
         case 3:
-            Escolha = Ladino;
+            Escolha = _Ladino;
             parada = 1;
             break;
         default:
@@ -50,8 +47,7 @@ Personagem Criar_Personagem()
         }
     }
 
-    Personagem Jogador(nome, historia, 5, 5, 5, 5, &Escolha);
-
+    Personagem Jogador(nome, historia, 5, 5, 5, 5, Escolha);
 
     return Jogador;
 };
@@ -89,3 +85,11 @@ int menuInicial()
     }
     return 0;
 };
+
+void LimparTela()
+{
+    int teste = system("clear");
+    if(teste == -1)
+        std::cout << "Erro ao limpar a tela" << std::endl;
+    
+}

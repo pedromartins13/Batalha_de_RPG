@@ -21,6 +21,8 @@ public:
     int getMDES();
     int getMFOR();
     int getMCON();
+
+    void listarAtaques();
 };
 
 #endif

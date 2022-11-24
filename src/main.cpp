@@ -8,25 +8,45 @@
 int opcaoMenu = 0;
 int main()
 {
-    std::vector<Inimigos*> Lista_Inimigos;
-    std::vector<Inimigos*>::iterator it;
-    Inimigos Goblin("Goblin");
-    Inimigos Zumbi("Zumbi");
+    Classe Mago("Mago");
+    Classe Guerreiro("Guerreiro");
+    Classe Ladino("Ladino");
 
-    Lista_Inimigos.push_back(&Goblin);
-    Lista_Inimigos.push_back(&Zumbi);
+    Personagem Jogador = Criar_Personagem(&Mago, &Guerreiro, &Ladino);
+    LimparTela();
 
-    Personagem Jogador = Criar_Personagem();
-    opcaoMenu = menuInicial();
-
-    if (opcaoMenu == 1)
+    while (1)
     {
-        while (Lista_Inimigos.size() != 0)
+        opcaoMenu = menuInicial();
+        LimparTela();
+
+        std::vector<Inimigos *> Lista_Inimigos;
+        std::vector<Inimigos *>::iterator it;
+        Inimigos Goblin("Goblin");
+        Inimigos Zumbi("Zumbi");
+
+        Lista_Inimigos.push_back(&Goblin);
+        Lista_Inimigos.push_back(&Zumbi);
+
+        if (opcaoMenu == 1)
         {
-            int i = 0;
-            Luta(Lista_Inimigos[i], &Jogador);
-            Lista_Inimigos.erase(Lista_Inimigos.begin());
-            
+            while (Lista_Inimigos.size() != 0)
+            {
+                int i = 0;
+                Luta(Lista_Inimigos[i], &Jogador);
+                if (Lista_Inimigos[i]->getVida() == 0)
+                    Lista_Inimigos.erase(Lista_Inimigos.begin());
+                else if (Jogador.getVida() == 0)
+                {
+                    std::cout << "Você perdeu" << std::endl;
+                    break;
+                }
+                else
+                {
+                    std::cout << "Erro" << std::endl;
+                    break;
+                }
+            }
         }
     }
 

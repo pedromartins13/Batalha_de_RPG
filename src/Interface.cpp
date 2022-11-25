@@ -1,4 +1,5 @@
 #include "../lib/Interface.hpp"
+#include <unistd.h>
 
 Personagem Criar_Personagem(Classe *_Mago, Classe *_Guerreiro, Classe *_Ladino)
 {
@@ -89,7 +90,11 @@ int menuInicial()
 void LimparTela()
 {
     int teste = system("clear");
-    if(teste == -1)
+    if (teste == -1)
         std::cout << "Erro ao limpar a tela" << std::endl;
-    
+}
+
+void Pausar()
+{
+    sleep(3);
 }

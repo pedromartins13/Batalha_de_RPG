@@ -72,21 +72,58 @@ void Classe::listarAtaques()
 
 int Classe::Ataque_1()
 {
+    std::cout << "utilizou o Ataque Básico ";
     return 5;
 }
 
 int Classe::Ataque_2()
 {
+    if (this->nome_da_classe == "Mago")
+    {
+        std::cout << "utilizou o Raio ";
+    }
+    else if (this->nome_da_classe == "Guerreiro")
+    {
+        std::cout << "utilizou o Ataque Forte ";
+    }
+    else if (this->nome_da_classe == "Ladino")
+    {
+        std::cout << "utilizou o Ataque Furtivo ";
+    }
     return 10;
 }
 
 int Classe::Ataque_3()
 {
+    if (this->nome_da_classe == "Mago")
+    {
+        std::cout << "utilizou a Geada ";
+    }
+    else if (this->nome_da_classe == "Guerreiro")
+    {
+        std::cout << "utilizou a Dança das Espadas ";
+    }
+    else if (this->nome_da_classe == "Ladino")
+    {
+        std::cout << "utilizou o Estrangulamento ";
+    }
     return 15;
 }
 
 int Classe::Ataque_4()
 {
+    if (this->nome_da_classe == "Mago")
+    {
+        std::cout << "utilizou a Bola de Fogo ";
+    }
+    else if (this->nome_da_classe == "Guerreiro")
+    {
+        std::cout << "utilizou a Espadada Fatal ";
+    }
+    else if (this->nome_da_classe == "Ladino")
+    {
+        std::cout << "utilizou a Adaga Cortante ";
+    }
     return 20;
 }
 
@@ -108,4 +145,9 @@ int Classe::getMFOR()
 int Classe::getMINT()
 {
     return this->Multiplicador_INT;
+}
+
+std::string Classe::getNome()
+{
+    return nome_da_classe;
 }

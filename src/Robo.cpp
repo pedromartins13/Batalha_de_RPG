@@ -19,23 +19,37 @@ void TurnoRobo(Inimigos *_inimigo, Personagem *_jogador)
         switch (escolha)
         {
         case 1:
+
+            std::cout << std::endl
+                      << _inimigo->getNome() << " ";
             vida_jogador = vida_jogador - (_inimigo->getClasse()->Ataque_1());
+            std::cout << "em " << _jogador->getNome() << std::endl;
             _jogador->setVida(vida_jogador);
+            Pausar();
             parada = 1;
             break;
         case 2:
+            std::cout << _inimigo->getNome() << " ";
             vida_jogador = vida_jogador - (_inimigo->getClasse()->Ataque_2());
+            std::cout << "em " << _jogador->getNome() << std::endl;
             _jogador->setVida(vida_jogador);
+            Pausar();
             parada = 1;
             break;
         case 3:
+            std::cout << _inimigo->getNome() << " ";
             vida_jogador = vida_jogador - (_inimigo->getClasse()->Ataque_3());
+            std::cout << "em " << _jogador->getNome() << std::endl;
             _jogador->setVida(vida_jogador);
+            Pausar();
             parada = 1;
             break;
         case 4:
+            std::cout << _inimigo->getNome() << " ";
             vida_jogador = vida_jogador - (_inimigo->getClasse()->Ataque_4());
+            std::cout << "em " << _jogador->getNome() << std::endl;
             _jogador->setVida(vida_jogador);
+            Pausar();
             parada = 1;
             break;
 

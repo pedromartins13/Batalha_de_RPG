@@ -23,6 +23,7 @@ public:
     int getMCON();
 
     void listarAtaques();
+    std::string getNome();
 };
 
 #endif

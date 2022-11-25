@@ -8,7 +8,8 @@ class Personagem
 {
 private:
     int ataque, defesa, vida, mana, DES, INT, CON, FOR; // Atributos
-    int level, experiencia;                             // Atributos de Evolução
+    int level, experiencia;
+    int vidaBasica;                        // Atributos de Evolução
 
     Classe *Classe_Personagem = new Classe;
 
@@ -44,5 +45,9 @@ public:
     int getEXP();
     std::string getNome();
     Classe* getClasse();
+
+    void ConfiguracoesIniciais();
+    int Atacar(int dano);
+    int Critico();
 };
 #endif

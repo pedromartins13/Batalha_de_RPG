@@ -22,8 +22,8 @@ int main()
 
         std::vector<Inimigos *> Lista_Inimigos;
         std::vector<Inimigos *>::iterator it;
-        Inimigos Goblin("Goblin");
-        Inimigos Zumbi("Zumbi");
+        Inimigos Goblin("Goblin", &Guerreiro);
+        Inimigos Zumbi("Zumbi", &Guerreiro);
 
         Lista_Inimigos.push_back(&Goblin);
         Lista_Inimigos.push_back(&Zumbi);
@@ -34,18 +34,28 @@ int main()
             {
                 int i = 0;
                 Luta(Lista_Inimigos[i], &Jogador);
+                ConferirVida(Lista_Inimigos[i], &Jogador);
                 if (Lista_Inimigos[i]->getVida() == 0)
                     Lista_Inimigos.erase(Lista_Inimigos.begin());
-                else if (Jogador.getVida() == 0)
+
+                if (Jogador.getVida() == 0)
                 {
                     std::cout << "Você perdeu" << std::endl;
+                    Pausar();
+                    LimparTela();
+                    Jogador.ConfiguracoesIniciais();
                     break;
                 }
-                else
+
+                if (Lista_Inimigos.size() == 0)
                 {
-                    std::cout << "Erro" << std::endl;
+                    std::cout << "Você Ganhou" << std::endl;
+                    Pausar();
+                    LimparTela();
+                    Jogador.ConfiguracoesIniciais();
                     break;
                 }
+                EntreTurnos();
             }
         }
     }

@@ -9,7 +9,7 @@ private:
     std::string fraqueza;
 
 public:
-    Inimigos(std::string _nome);
+    Inimigos(std::string _nome, Classe *_classe);
 };
 
 #endif

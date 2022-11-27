@@ -6,8 +6,6 @@
 class Inimigos : public Personagem
 {
 private:
-    std::string fraqueza;
-
 public:
     Inimigos(std::string _nome, Classe *_classe);
 };

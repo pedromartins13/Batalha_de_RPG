@@ -7,9 +7,8 @@
 class Personagem
 {
 private:
-    int ataque, defesa, vida, mana, DES, INT, CON, FOR; // Atributos
-    int level, experiencia;
-    int vidaBasica;                        // Atributos de Evolução
+    int ataque, defesa, vida, stamina, mana, DES, INT, CON, FOR; // Atributos
+    int level, experiencia;                                      // Atributos de Evolução
 
     Classe *Classe_Personagem = new Classe;
 
@@ -23,6 +22,7 @@ public:
     void setAtaque(int _ataque);
     void setDefesa(int _defesa);
     void setVida(int _vida);
+    void setStamina(int _Stamina);
     void setMana(int _mana);
     void setDES(int _DES);
     void setINT(int _INT);
@@ -30,12 +30,14 @@ public:
     void setFOR(int _FOR);
     void setLVL(int _LVL);
     void setEXP(int _EXP);
+
     void setClasse(Classe *_Classe);
     void setNome(std::string _nome);
 
     int getAtaque();
     int getDefesa();
     int getVida();
+    int getStamina();
     int getMana();
     int getDES();
     int getINT();
@@ -44,10 +46,12 @@ public:
     int getLVL();
     int getEXP();
     std::string getNome();
-    Classe* getClasse();
+    Classe *getClasse();
 
     void ConfiguracoesIniciais();
-    int Atacar(int dano);
+    int Atacar(int dano, int defesa);
     int Critico();
+    void SubirdeNivel(int exp);
+    void EscolhaDeAtributos();
 };
 #endif

@@ -36,7 +36,10 @@ int main()
                 Luta(Lista_Inimigos[i], &Jogador);
                 ConferirVida(Lista_Inimigos[i], &Jogador);
                 if (Lista_Inimigos[i]->getVida() == 0)
+                {
                     Lista_Inimigos.erase(Lista_Inimigos.begin());
+                    Jogador.SubirdeNivel(Lista_Inimigos[i]->getEXP());
+                }
 
                 if (Jogador.getVida() == 0)
                 {

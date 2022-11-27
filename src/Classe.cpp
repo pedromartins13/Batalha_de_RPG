@@ -7,7 +7,7 @@ Classe::Classe(std::string nome_da_classe)
         this->nome_da_classe = nome_da_classe;
         this->Multiplicador_INT = 3;
         this->Multiplicador_CON = 2;
-        this->Multiplicador_DES = 1;
+        this->Multiplicador_DES = 2;
         this->Multiplicador_FOR = 1;
     }
     else if (nome_da_classe == "Guerreiro")
@@ -15,8 +15,8 @@ Classe::Classe(std::string nome_da_classe)
         this->nome_da_classe = nome_da_classe;
         this->Multiplicador_INT = 1;
         this->Multiplicador_CON = 3;
-        this->Multiplicador_DES = 1;
-        this->Multiplicador_FOR = 3;
+        this->Multiplicador_DES = 2;
+        this->Multiplicador_FOR = 2;
     }
     else if (nome_da_classe == "Ladino")
     {
@@ -73,7 +73,7 @@ void Classe::listarAtaques()
 int Classe::Ataque_1()
 {
     std::cout << "utilizou o Ataque Básico ";
-    return 5;
+    return 1;
 }
 
 int Classe::Ataque_2()
@@ -90,7 +90,7 @@ int Classe::Ataque_2()
     {
         std::cout << "utilizou o Ataque Furtivo ";
     }
-    return 10;
+    return 2;
 }
 
 int Classe::Ataque_3()
@@ -107,7 +107,7 @@ int Classe::Ataque_3()
     {
         std::cout << "utilizou o Estrangulamento ";
     }
-    return 15;
+    return 3;
 }
 
 int Classe::Ataque_4()
@@ -124,7 +124,7 @@ int Classe::Ataque_4()
     {
         std::cout << "utilizou a Adaga Cortante ";
     }
-    return 20;
+    return 4;
 }
 
 int Classe::getMCON()

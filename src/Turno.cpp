@@ -13,9 +13,16 @@ void Luta(Inimigos *_inimigo, Personagem *_jogador)
         LimparTela();
         int escolha = 0;
         int parada = 0;
+        int danoInicial = 0;
+        int danoFinal = 0;
         std::cout << "Turno: " << i << std::endl;
-        std::cout << "Vida do " << _inimigo->getNome() << ": " << _inimigo->getVida() << std::endl;
-        std::cout << "Vida do " << _jogador->getNome() << ": " << _jogador->getVida() << std::endl;
+        std::cout << _jogador->getNome() << "| "
+                  << "Vida: " << _jogador->getVida() << "   "
+                  << "Mana: " << _jogador->getMana() << "   "
+                  << "Stamina: " << _jogador->getStamina() << "   " << std::endl;
+
+        std::cout << "Vida do " << _inimigo->getNome() << ": " << _inimigo->getVida() << std::endl
+                  << std::endl;
 
         while (parada == 0)
         {
@@ -28,8 +35,10 @@ void Luta(Inimigos *_inimigo, Personagem *_jogador)
             case 1:
                 std::cout << std::endl
                           << _jogador->getNome() << " ";
-                vida_inimigo = vida_inimigo - (_jogador->getClasse()->Ataque_1());
-                std::cout << "em " << _inimigo->getNome() << std::endl;
+                danoInicial = _jogador->getClasse()->Ataque_1();
+                std::cout << "em " << _inimigo->getNome();
+                danoFinal = _jogador->Atacar(danoInicial, _inimigo->getDefesa());
+                vida_inimigo = vida_inimigo - danoFinal;
                 _inimigo->setVida(vida_inimigo);
                 Pausar();
                 parada = 1;
@@ -37,8 +46,10 @@ void Luta(Inimigos *_inimigo, Personagem *_jogador)
             case 2:
                 std::cout << std::endl
                           << _jogador->getNome() << " ";
-                vida_inimigo = vida_inimigo - (_jogador->getClasse()->Ataque_2());
-                std::cout << "em " << _inimigo->getNome() << std::endl;
+                danoInicial = _jogador->getClasse()->Ataque_2();
+                std::cout << "em " << _inimigo->getNome();
+                danoFinal = _jogador->Atacar(danoInicial, _inimigo->getDefesa());
+                vida_inimigo = vida_inimigo - danoFinal;
                 _inimigo->setVida(vida_inimigo);
                 Pausar();
                 parada = 1;
@@ -46,8 +57,10 @@ void Luta(Inimigos *_inimigo, Personagem *_jogador)
             case 3:
                 std::cout << std::endl
                           << _jogador->getNome() << " ";
-                vida_inimigo = vida_inimigo - (_jogador->getClasse()->Ataque_3());
-                std::cout << "em " << _inimigo->getNome() << std::endl;
+                danoInicial = _jogador->getClasse()->Ataque_3();
+                std::cout << "em " << _inimigo->getNome();
+                danoFinal = _jogador->Atacar(danoInicial, _inimigo->getDefesa());
+                vida_inimigo = vida_inimigo - danoFinal;
                 _inimigo->setVida(vida_inimigo);
                 Pausar();
                 parada = 1;
@@ -55,8 +68,10 @@ void Luta(Inimigos *_inimigo, Personagem *_jogador)
             case 4:
                 std::cout << std::endl
                           << _jogador->getNome() << " ";
-                vida_inimigo = vida_inimigo - (_jogador->getClasse()->Ataque_4());
-                std::cout << "em " << _inimigo->getNome() << std::endl;
+                danoInicial = _jogador->getClasse()->Ataque_4();
+                std::cout << "em " << _inimigo->getNome();
+                danoFinal = _jogador->Atacar(danoInicial, _inimigo->getDefesa());
+                vida_inimigo = vida_inimigo - danoFinal;
                 _inimigo->setVida(vida_inimigo);
                 Pausar();
                 parada = 1;
@@ -75,14 +90,15 @@ void Luta(Inimigos *_inimigo, Personagem *_jogador)
             LimparTela();
             break;
         }
-        else if (_jogador->getVida() <= 0)
+
+        TurnoRobo(_inimigo, _jogador);
+
+        if (_jogador->getVida() <= 0)
         {
             _jogador->setVida(0);
             LimparTela();
             break;
         }
-
-        TurnoRobo(_inimigo, _jogador);
 
         LimparTela();
     }

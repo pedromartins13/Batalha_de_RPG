@@ -5,6 +5,7 @@
 void Luta(Inimigos *_inimigo, Personagem *_jogador)
 {
     std::cout << _inimigo->getNome() << " VS " << _jogador->getNome() << std::endl;
+    Pausar();
 
     int vida_inimigo = _inimigo->getVida();
 
@@ -15,17 +16,18 @@ void Luta(Inimigos *_inimigo, Personagem *_jogador)
         int parada = 0;
         int danoInicial = 0;
         int danoFinal = 0;
-        std::cout << "Turno: " << i << std::endl;
-        std::cout << _jogador->getNome() << "| "
-                  << "Vida: " << _jogador->getVida() << "   "
-                  << "Mana: " << _jogador->getMana() << "   "
-                  << "Stamina: " << _jogador->getStamina() << "   " << std::endl;
-
-        std::cout << "Vida do " << _inimigo->getNome() << ": " << _inimigo->getVida() << std::endl
-                  << std::endl;
+        int opcao = 0;
 
         while (parada == 0)
         {
+            std::cout << "Turno: " << i << std::endl;
+            std::cout << _jogador->getNome() << "| "
+                      << "Vida: " << _jogador->getVida() << "   "
+                      << "Mana: " << _jogador->getMana() << "   "
+                      << "Stamina: " << _jogador->getStamina() << "   " << std::endl;
+
+            std::cout << "Vida do " << _inimigo->getNome() << ": " << _inimigo->getVida() << std::endl
+                      << std::endl;
             std::cout << "Escolha seu ataque:" << std::endl;
 
             _jogador->getClasse()->listarAtaques();
@@ -38,43 +40,89 @@ void Luta(Inimigos *_inimigo, Personagem *_jogador)
                 danoInicial = _jogador->getClasse()->Ataque_1();
                 std::cout << "em " << _inimigo->getNome();
                 danoFinal = _jogador->Atacar(danoInicial, _inimigo->getDefesa());
-                vida_inimigo = vida_inimigo - danoFinal;
-                _inimigo->setVida(vida_inimigo);
-                Pausar();
-                parada = 1;
-                break;
+                if (danoFinal == 5000)
+                {
+                    break;
+                }
+                else
+                {
+                    vida_inimigo = vida_inimigo - danoFinal;
+                    _inimigo->setVida(vida_inimigo);
+                    Pausar();
+                    parada = 1;
+                    break;
+                }
+
             case 2:
                 std::cout << std::endl
                           << _jogador->getNome() << " ";
                 danoInicial = _jogador->getClasse()->Ataque_2();
                 std::cout << "em " << _inimigo->getNome();
                 danoFinal = _jogador->Atacar(danoInicial, _inimigo->getDefesa());
-                vida_inimigo = vida_inimigo - danoFinal;
-                _inimigo->setVida(vida_inimigo);
-                Pausar();
-                parada = 1;
-                break;
+                if (danoFinal == 5000)
+                {
+                    LimparTela();
+                    break;
+                }
+                else
+                {
+                    vida_inimigo = vida_inimigo - danoFinal;
+                    _inimigo->setVida(vida_inimigo);
+                    Pausar();
+                    parada = 1;
+                    break;
+                }
+
             case 3:
                 std::cout << std::endl
                           << _jogador->getNome() << " ";
                 danoInicial = _jogador->getClasse()->Ataque_3();
                 std::cout << "em " << _inimigo->getNome();
                 danoFinal = _jogador->Atacar(danoInicial, _inimigo->getDefesa());
-                vida_inimigo = vida_inimigo - danoFinal;
-                _inimigo->setVida(vida_inimigo);
-                Pausar();
-                parada = 1;
-                break;
+                if (danoFinal == 5000)
+                {
+                    LimparTela();
+                    break;
+                }
+                else
+                {
+                    vida_inimigo = vida_inimigo - danoFinal;
+                    _inimigo->setVida(vida_inimigo);
+                    Pausar();
+                    parada = 1;
+                    break;
+                }
+
             case 4:
                 std::cout << std::endl
                           << _jogador->getNome() << " ";
                 danoInicial = _jogador->getClasse()->Ataque_4();
                 std::cout << "em " << _inimigo->getNome();
                 danoFinal = _jogador->Atacar(danoInicial, _inimigo->getDefesa());
-                vida_inimigo = vida_inimigo - danoFinal;
-                _inimigo->setVida(vida_inimigo);
-                Pausar();
-                parada = 1;
+                if (danoFinal == 5000)
+                {
+                    LimparTela();
+                    break;
+                }
+                else
+                {
+                    vida_inimigo = vida_inimigo - danoFinal;
+                    _inimigo->setVida(vida_inimigo);
+                    Pausar();
+                    parada = 1;
+                    break;
+                }
+            case 5:
+                LimparTela();
+                opcao = usarMochila(_jogador);
+                if (opcao == 4)
+                {
+                    parada = 0;
+                    LimparTela();
+                }
+                else
+                    parada = 1;
+
                 break;
 
             default:
@@ -118,7 +166,7 @@ void ConferirVida(Inimigos *_inimigo, Personagem *_jogador)
     }
 }
 
-void EntreTurnos()
+void EntreTurnos(Personagem *_jogador)
 {
     int parada = 0;
     while (parada == 0)
@@ -143,7 +191,11 @@ void EntreTurnos()
             parada = 1;
             Pausar();
             LimparTela();
-            std::cout << "Em andamento" << std::endl;
+            usarMochila(_jogador);
+            Pausar();
+            LimparTela();
+            Pausar();
+            std::cout << "Próxima batalha" << std::endl;
             Pausar();
             break;
         default:
@@ -152,4 +204,9 @@ void EntreTurnos()
     }
 
     LimparTela();
+}
+
+void LutaFinal(Inimigos *_inimigo, Personagem *_jogador)
+{
+    
 }

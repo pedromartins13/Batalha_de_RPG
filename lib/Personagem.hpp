@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "../lib/Classe.hpp"
+#include "../lib/Mochila.hpp"
 
 class Personagem
 {
@@ -10,12 +11,13 @@ private:
     int ataque, defesa, vida, stamina, mana, DES, INT, CON, FOR; // Atributos
     int level, experiencia;                                      // Atributos de Evolução
 
+    Mochila *Mochila_Jogador = new Mochila;
     Classe *Classe_Personagem = new Classe;
 
-    std::string nome, historia;
+    std::string nome;
 
 public:
-    Personagem(std::string nome, std::string _historia, int _DES, int _INT, int _CON, int _FOR, Classe *_Classe);
+    Personagem(std::string nome, int _DES, int _INT, int _CON, int _FOR, Classe *_Classe, Mochila *_Mochila);
     Personagem();
     ~Personagem();
 
@@ -47,11 +49,13 @@ public:
     int getEXP();
     std::string getNome();
     Classe *getClasse();
+    Mochila *getMochila();
 
     void ConfiguracoesIniciais();
     int Atacar(int dano, int defesa);
     int Critico();
     void SubirdeNivel(int exp);
     void EscolhaDeAtributos();
+    void usarItem(int item);
 };
 #endif

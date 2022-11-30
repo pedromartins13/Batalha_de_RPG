@@ -2,11 +2,11 @@
 #include "../lib/Robo.hpp"
 #include "../lib/Interface.hpp"
 
-Personagem::Personagem(std::string nome, std::string _historia, int _DES, int _INT, int _CON, int _FOR, Classe *_Classe)
+Personagem::Personagem(std::string nome, int _DES, int _INT, int _CON, int _FOR, Classe *_Classe, Mochila *_Mochila)
 {
     this->nome = nome;
-    this->historia = _historia;
     this->Classe_Personagem = _Classe;
+    this->Mochila_Jogador = _Mochila;
 
     this->DES = this->Classe_Personagem->getMDES() * _DES;
     this->INT = this->Classe_Personagem->getMINT() * _INT;
@@ -32,7 +32,6 @@ Personagem::Personagem(std::string nome, std::string _historia, int _DES, int _I
 Personagem::Personagem()
 {
     this->nome = "";
-    this->historia = "";
     this->Classe_Personagem = NULL;
 
     this->DES = 0;
@@ -92,6 +91,10 @@ void Personagem::setClasse(Classe *_classe)
 void Personagem::setNome(std::string _nome)
 {
     this->nome = _nome;
+}
+void Personagem::setStamina(int stamina)
+{
+    this->stamina = stamina;
 }
 
 int Personagem::getVida()
@@ -175,7 +178,7 @@ int Personagem::Atacar(int dano, int defesa)
 {
     int critico = Critico();
     int danoInicial = dano;
-    int aleatorio = numeroAleatorio(1 , 4);
+    int aleatorio = numeroAleatorio(1, 2);
 
     if (critico == 1)
     {
@@ -196,23 +199,68 @@ int Personagem::Atacar(int dano, int defesa)
 
         if (danoInicial == 1)
         {
-            dano = dano * (this->getFOR() * 10) - defesa;
-            this->stamina = this->stamina - 5;
+            if (this->mana < 5)
+            {
+                std::cout << std::endl;
+                LimparTela();
+                std::cout << "Mana Insuficiente" << std::endl;
+                Pausar();
+                return 5000;
+            }
+            else
+            {
+                dano = dano * (this->getFOR() * 15 * this->getLVL()) - defesa;
+                this->stamina = this->stamina - 5;
+            }
         }
         else if (danoInicial == 2)
         {
-            dano = dano * this->getAtaque() - defesa;
-            this->mana = this->mana - 10;
+            if (this->mana < 10)
+            {
+
+                std::cout << std::endl;
+                LimparTela();
+                std::cout << "Mana Insuficiente" << std::endl;
+                Pausar();
+                return 5000;
+            }
+            else
+            {
+                dano = dano * this->getAtaque() - defesa;
+                this->mana = this->mana - 10;
+            }
         }
         else if (danoInicial == 3)
         {
-            dano = dano * this->getAtaque() - (defesa * aleatorio);
-            this->mana = this->mana - 15;
+            if (this->mana < 15)
+            {
+                std::cout << std::endl;
+                LimparTela();
+                std::cout << "Mana Insuficiente" << std::endl;
+                Pausar();
+                return 5000;
+            }
+            else
+            {
+                dano = dano * this->getAtaque() - (defesa * aleatorio);
+                this->mana = this->mana - 15;
+            }
         }
         else if (danoInicial == 4)
         {
-            dano = dano * this->getAtaque() - (defesa * aleatorio);
-            this->mana = this->mana - 20;
+            if (this->mana < 25)
+            {
+                std::cout << std::endl;
+                LimparTela();
+                std::cout << "Mana Insuficiente" << std::endl;
+                Pausar();
+                return 5000;
+            }
+            else
+            {
+                dano = dano * this->getAtaque() - (defesa * aleatorio);
+                this->mana = this->mana - 25;
+            }
         }
     }
     else if (this->Classe_Personagem->getNome() == "Guerreiro")
@@ -220,46 +268,136 @@ int Personagem::Atacar(int dano, int defesa)
 
         if (danoInicial == 1)
         {
-            dano = dano * this->getAtaque() - defesa;
-            this->stamina = this->stamina - 5;
+            if (this->stamina < 5)
+            {
+                std::cout << std::endl;
+                LimparTela();
+                std::cout << "Stamina Insuficiente" << std::endl;
+                Pausar();
+                Pausar();
+                return 5000;
+            }
+            else
+            {
+                dano = dano * this->getAtaque() - defesa;
+                this->stamina = this->stamina - 5;
+            }
         }
         else if (danoInicial == 2)
         {
-            dano = dano * this->getAtaque() - defesa;
-            this->stamina = this->stamina - 10;
+            if (this->stamina < 10)
+            {
+                std::cout << std::endl;
+                LimparTela();
+                std::cout << "Stamina Insuficiente" << std::endl;
+                Pausar();
+                return 5000;
+            }
+            else
+            {
+                dano = dano * this->getAtaque() - defesa;
+                this->stamina = this->stamina - 10;
+            }
         }
         else if (danoInicial == 3)
         {
-            dano = dano * this->getAtaque() - (defesa * aleatorio);
-            this->stamina = this->stamina - 15;
+            if (this->stamina < 15)
+            {
+                std::cout << std::endl;
+                LimparTela();
+                std::cout << "Stamina Insuficiente" << std::endl;
+                Pausar();
+                return 5000;
+            }
+            else
+            {
+                dano = dano * this->getAtaque() - (defesa * aleatorio);
+                this->stamina = this->stamina - 15;
+            }
         }
         else if (danoInicial == 4)
         {
-            dano = dano * this->getAtaque() - (defesa * aleatorio);
-            this->stamina = this->stamina - 20;
+            if (this->stamina < 20)
+            {
+                std::cout << std::endl;
+                LimparTela();
+                std::cout << "Stamina Insuficiente" << std::endl;
+                Pausar();
+                return 5000;
+            }
+            else
+            {
+                dano = dano * this->getAtaque() - (defesa * aleatorio);
+                this->stamina = this->stamina - 20;
+            }
         }
     }
     else if (this->Classe_Personagem->getNome() == "Ladino")
     {
+
         if (danoInicial == 1)
         {
-            dano = dano * this->getAtaque() - defesa;
-            this->stamina = this->stamina - 5;
+            if (this->stamina < 5)
+            {
+                std::cout << std::endl;
+                LimparTela();
+                std::cout << "Stamina Insuficiente" << std::endl;
+                Pausar();
+                return 5000;
+            }
+            else
+            {
+                dano = dano * this->getAtaque() - defesa;
+                this->stamina = this->stamina - 5;
+            }
         }
         else if (danoInicial == 2)
         {
-            dano = dano * this->getAtaque() - defesa;
-            this->stamina = this->stamina - 10;
+            if (this->stamina < 10)
+            {
+                std::cout << std::endl;
+                LimparTela();
+                std::cout << "Stamina Insuficiente" << std::endl;
+                Pausar();
+                return 5000;
+            }
+            else
+            {
+                dano = dano * this->getAtaque() - defesa;
+                this->stamina = this->stamina - 10;
+            }
         }
         else if (danoInicial == 3)
         {
-            dano = dano * this->getAtaque() - (defesa * aleatorio);
-            this->stamina = this->stamina - 15;
+            if (this->stamina < 15)
+            {
+                std::cout << std::endl;
+                LimparTela();
+                std::cout << "Stamina Insuficiente" << std::endl;
+                Pausar();
+                return 5000;
+            }
+            else
+            {
+                dano = dano * this->getAtaque() - (defesa * aleatorio);
+                this->stamina = this->stamina - 15;
+            }
         }
         else if (danoInicial == 4)
         {
-            dano = dano * this->getAtaque() - (defesa * aleatorio);
-            this->stamina = this->stamina - 20;
+            if (this->stamina < 20)
+            {
+                std::cout << std::endl;
+                LimparTela();
+                std::cout << "Stamina Insuficiente" << std::endl;
+                Pausar();
+                return 5000;
+            }
+            else
+            {
+                dano = dano * this->getAtaque() - (defesa * aleatorio);
+                this->stamina = this->stamina - 20;
+            }
         }
     }
 
@@ -331,7 +469,7 @@ void Personagem::SubirdeNivel(int exp)
         EscolhaDeAtributos();
 
         this->defesa = this->FOR * 5;
-        this->vida = this->CON * 5;
+        this->vida = this->CON * 5 * this->level;
         this->mana = this->INT * 5;
         this->stamina = this->DES * 5;
 
@@ -396,4 +534,58 @@ void Personagem::EscolhaDeAtributos()
         }
         LimparTela();
     }
+}
+
+void Personagem::usarItem(int item)
+{
+    int Pontos;
+    if (item == 1)
+    {
+        if (this->Mochila_Jogador->cura.size() > 0)
+        {
+            Pontos = this->Mochila_Jogador->cura[0]->getPonto();
+            this->setVida(this->vida + (Pontos * this->level));
+            this->Mochila_Jogador->cura.erase(this->Mochila_Jogador->cura.begin());
+        }
+        else
+        {
+            LimparTela();
+            std::cout << "Você não tem mais Pocões de Cura" << std::endl;
+        }
+    };
+
+    if (item == 2)
+    {
+        if (this->Mochila_Jogador->mana.size() > 0)
+        {
+            Pontos = this->Mochila_Jogador->mana[0]->getPonto();
+            this->setMana(this->mana + (Pontos * this->level));
+            this->Mochila_Jogador->mana.erase(this->Mochila_Jogador->mana.begin());
+        }
+        else
+        {
+            LimparTela();
+            std::cout << "Você não tem mais Pocões de Mana" << std::endl;
+        }
+    };
+
+    if (item == 3)
+    {
+        if (this->Mochila_Jogador->stamina.size() > 0)
+        {
+            Pontos = this->Mochila_Jogador->stamina[0]->getPonto();
+            this->setStamina(this->stamina + (Pontos * this->level));
+            this->Mochila_Jogador->stamina.erase(this->Mochila_Jogador->stamina.begin());
+        }
+        else
+        {
+            LimparTela();
+            std::cout << "Você não tem mais Pocões de Stamina" << std::endl;
+        }
+    };
+}
+
+Mochila *Personagem::getMochila()
+{
+    return this->Mochila_Jogador;
 }

@@ -55,8 +55,8 @@ int main()
                 ConferirVida(Lista_Inimigos[i], &Jogador);
                 if (Lista_Inimigos[i]->getVida() == 0)
                 {
-                    Lista_Inimigos.erase(Lista_Inimigos.begin());
                     Jogador.SubirdeNivel(Lista_Inimigos[i]->getEXP());
+                    Lista_Inimigos.erase(Lista_Inimigos.begin());
 
                     Jogador.getMochila()->adicionarItens(&_pocao, 2);
 
@@ -76,6 +76,20 @@ int main()
                 if (Lista_Inimigos[i]->getNome() == "Dragão")
                 {
                     LutaFinal(Lista_Inimigos[i], &Jogador);
+                    ConferirVida(Lista_Inimigos[i], &Jogador);
+                    if (Jogador.getVida() == 0)
+                    {
+                        LimparTela();
+                        std::cout << "Você perdeu" << std::endl;
+                        Pausar();
+                        LimparTela();
+                        Jogador.ConfiguracoesIniciais();
+                        break;
+                    }
+                    if (Lista_Inimigos[i]->getVida() == 0)
+                    {
+                        Lista_Inimigos.erase(Lista_Inimigos.begin());
+                    }
                 }
 
                 if (Lista_Inimigos.size() == 0)

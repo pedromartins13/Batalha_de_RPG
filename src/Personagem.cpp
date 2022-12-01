@@ -13,7 +13,7 @@ Personagem::Personagem(std::string nome, int _DES, int _INT, int _CON, int _FOR,
     this->CON = this->Classe_Personagem->getMCON() * _CON;
     this->FOR = this->Classe_Personagem->getMFOR() * _FOR;
 
-    this->defesa = this->FOR * 5;
+    this->defesa = (this->DES * 5) + this->FOR;
     this->vida = this->CON * 5;
     this->mana = this->INT * 5;
     this->stamina = this->DES * 5;

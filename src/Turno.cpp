@@ -31,6 +31,7 @@ void Luta(Inimigos *_inimigo, Personagem *_jogador)
             std::cout << "Escolha seu ataque:" << std::endl;
 
             _jogador->getClasse()->listarAtaques();
+
             std::cin >> escolha;
             switch (escolha)
             {
@@ -176,6 +177,7 @@ void EntreTurnos(Personagem *_jogador)
                   << "2 - Abrir a Mochila" << std::endl;
 
         int escolha;
+
         std::cin >> escolha;
 
         switch (escolha)
@@ -208,5 +210,10 @@ void EntreTurnos(Personagem *_jogador)
 
 void LutaFinal(Inimigos *_inimigo, Personagem *_jogador)
 {
-    
+
+    LimparTela();
+
+    std::cout << "BOSS FINAL" << std::endl;
+    Pausar();
+    Luta(_inimigo, _jogador);
 }

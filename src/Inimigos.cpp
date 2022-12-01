@@ -7,6 +7,7 @@ Inimigos::Inimigos(std::string _nome, Classe *_classe)
     this->setNome(_nome);
     if (this->getNome() == "Goblin")
     {
+    
         this->setClasse(_classe);
         this->setAtaque(this->getLVL() * 10 * this->getClasse()->getMFOR());
         this->setDefesa(this->getLVL() * 30 * this->getClasse()->getMDES());
@@ -72,4 +73,38 @@ Inimigos::Inimigos(std::string _nome, Classe *_classe)
         this->setStamina(1000);
         this->setMana(1000);
     }
+    else if (this->getNome() == "Dragão")
+    {
+
+        this->setClasse(_classe);
+        this->setAtaque(this->getLVL() * 45 * this->getClasse()->getMFOR());
+        this->setDefesa(this->getLVL() * 60 * this->getClasse()->getMDES());
+        this->setVida(this->getLVL() * 250 * this->getClasse()->getMCON());
+        this->setStamina(1000);
+        this->setMana(1000);
+    }
 };
+
+int Inimigos::Ataque_1()
+{
+    std::cout << "utilizou o Ataque Básico ";
+    return 1;
+}
+
+int Inimigos::Ataque_2()
+{
+    std::cout << "utilizou o Bafo do Dragão ";
+    return 2;
+}
+
+int Inimigos::Ataque_3()
+{
+    std::cout << "utilizou o Fogo Eterno ";
+    return 3;
+}
+
+int Inimigos::Ataque_4()
+{
+    std::cout << "utilizou a Dança do Dragão Infernal ";
+    return 4;
+}

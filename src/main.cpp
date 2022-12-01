@@ -27,7 +27,6 @@ int main()
         LimparTela();
 
         std::vector<Inimigos *> Lista_Inimigos;
-        std::vector<Inimigos *>::iterator it;
 
         Inimigos Goblin("Goblin", &Guerreiro);
         Inimigos Zumbi("Zumbi", &Guerreiro);
@@ -35,6 +34,7 @@ int main()
         Inimigos Aranha_Mutante("Aranha_Mutante", &Mago);
         Inimigos Assassino("Assassino", &Ladino);
         Inimigos Arqueiro("Arqueiro", &Ladino);
+        Inimigos Dragao("Dragão", &Mago);
 
         Lista_Inimigos.push_back(&Goblin);
         Lista_Inimigos.push_back(&Zumbi);
@@ -42,6 +42,7 @@ int main()
         Lista_Inimigos.push_back(&Aranha_Mutante);
         Lista_Inimigos.push_back(&Assassino);
         Lista_Inimigos.push_back(&Arqueiro);
+        Lista_Inimigos.push_back(&Dragao);
 
         Pausar();
 
@@ -63,12 +64,6 @@ int main()
                     Pausar();
                 }
 
-                if (Lista_Inimigos[i]->getNome() == "Dragao")
-                {
-                    LutaFinal(Lista_Inimigos[i], &Jogador);
-                }
-                
-
                 if (Jogador.getVida() == 0)
                 {
                     LimparTela();
@@ -77,6 +72,10 @@ int main()
                     LimparTela();
                     Jogador.ConfiguracoesIniciais();
                     break;
+                }
+                if (Lista_Inimigos[i]->getNome() == "Dragao")
+                {
+                    LutaFinal(Lista_Inimigos[i], &Jogador);
                 }
 
                 if (Lista_Inimigos.size() == 0)
@@ -90,6 +89,34 @@ int main()
                 }
                 EntreTurnos(&Jogador);
             }
+        }
+
+        if (opcaoMenu == 2)
+        {
+            std::cout << "- Integrantes do Grupo -" << std::endl;
+            std::cout << std::endl;
+            Pausar();
+            std::cout << "Ana Clara Branquinho" << std::endl;
+            Pausar();
+            std::cout << "Pedro Martins de Souza" << std::endl;
+            Pausar();
+            std::cout << "Gustavo Chaves Maciel" << std::endl;
+            Pausar();
+            std::cout << "Mariana Mattos Olivera" << std::endl;
+            Pausar();
+            std::cout << "Rafael Pessoa Rosa" << std::endl;
+            Pausar();
+            Pausar();
+
+            std::cout << "Aperte qualquer tecla para retornar" << std::endl;
+            std::getchar();
+            std::getchar();
+            LimparTela();
+        }
+
+        if (opcaoMenu == 3)
+        {
+            break;
         }
     }
 

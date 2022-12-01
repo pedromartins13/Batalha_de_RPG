@@ -7,12 +7,12 @@ Mochila::Mochila(int qnt_cura, Pocao *_cura, int qnt_mana, Pocao *_mana, int qnt
         this->cura.push_back(_cura);
     }
 
-    for (int i = 0; i < qnt_cura; i++)
+    for (int i = 0; i < qnt_mana; i++)
     {
         this->mana.push_back(_mana);
     }
 
-    for (int i = 0; i < qnt_cura; i++)
+    for (int i = 0; i < qnt_stamina; i++)
     {
         this->stamina.push_back(_stamina);
     }

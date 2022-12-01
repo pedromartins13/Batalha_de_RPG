@@ -199,11 +199,11 @@ int Personagem::Atacar(int dano, int defesa)
 
         if (danoInicial == 1)
         {
-            if (this->mana < 5)
+            if (this->stamina < 5)
             {
                 std::cout << std::endl;
                 LimparTela();
-                std::cout << "Mana Insuficiente" << std::endl;
+                std::cout << "Stamina Insuficiente" << std::endl;
                 Pausar();
                 return 5000;
             }
@@ -500,7 +500,8 @@ void Personagem::EscolhaDeAtributos()
 
         while (parada == 0)
         {
-
+            
+            
             std::cin >> escolha;
 
             switch (escolha)

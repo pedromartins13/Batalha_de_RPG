@@ -16,7 +16,8 @@ Personagem Criar_Personagem(Classe *_Mago, Classe *_Guerreiro, Classe *_Ladino, 
 
     std::cout << "Qual o seu nome?" << std::endl
               << std::endl;
-    std::cin >> nome;
+
+    std::getline(std::cin, nome);
 
     std::cout << std::endl;
 
@@ -24,6 +25,7 @@ Personagem Criar_Personagem(Classe *_Mago, Classe *_Guerreiro, Classe *_Ladino, 
 
     int parada = 0;
     int escolha = 0;
+    std::string aux;
     while (parada == 0)
     {
         std::cout << "Escolha o número da sua Classe:" << std::endl;
@@ -74,7 +76,6 @@ Personagem Criar_Personagem(Classe *_Mago, Classe *_Guerreiro, Classe *_Ladino, 
     std::cout << std::endl;
     Pausar();
     Pausar();
-    
 
     return Jogador;
 };
@@ -84,12 +85,15 @@ int menuInicial()
     int parada = 0;
     while (parada == 0)
     {
-        std::cout << "MENU" << std::endl << std::endl;
+        std::cout << "MENU" << std::endl
+                  << std::endl;
         std::cout << "Escolha uma opção" << std::endl;
         std::cout << "1 - Começar" << std::endl
-                  << "2 - Créditos" << std::endl;
+                  << "2 - Créditos" << std::endl
+                  << "3 - Fechar" << std::endl;
 
         int escolha;
+        
         std::cin >> escolha;
 
         switch (escolha)
@@ -122,7 +126,7 @@ void LimparTela()
 
 void Pausar()
 {
-    sleep(3);
+    sleep(1);
 }
 
 int usarMochila(Personagem *_jogador)

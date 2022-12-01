@@ -21,6 +21,8 @@ public:
     Personagem();
     ~Personagem();
 
+
+    //Setters
     void setAtaque(int _ataque);
     void setDefesa(int _defesa);
     void setVida(int _vida);
@@ -35,7 +37,8 @@ public:
 
     void setClasse(Classe *_Classe);
     void setNome(std::string _nome);
-
+    
+    //Getters
     int getAtaque();
     int getDefesa();
     int getVida();
@@ -51,11 +54,17 @@ public:
     Classe *getClasse();
     Mochila *getMochila();
 
+    // Faz com que o personagem retorne para os seus atributos iniciais;
     void ConfiguracoesIniciais();
+    //Retorna o valor de ataque, se baseando no dano de ataque e na defesa do adversário;
     int Atacar(int dano, int defesa);
+    //Retorna se o ataque foi crítico ou não;
     int Critico();
+    //A partir da experiencia obtida ao derrotar um inimigo é calculado se o jogador subiu de nivel;
     void SubirdeNivel(int exp);
+    //Função responsável por permitir a adição de atributos ao personagem quando este sobre de nível;
     void EscolhaDeAtributos();
+    //Função responsável por utilizar um item da mochila;
     void usarItem(int item);
 };
 #endif

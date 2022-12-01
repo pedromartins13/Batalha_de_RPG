@@ -412,6 +412,9 @@ int Personagem::Atacar(int dano, int defesa)
 }
 int Personagem::Critico()
 {
+    /*Inicializa um vetor de 100 inteiros, para cada atributo do personagem coloca o valor do vetor
+    como 1, o resto será inicializado com 0. A partir de um indice aleatório, verifica se a posição
+    vale 1, se valer, foi dano crítico.*/
     int vec[100];
 
     for (int i = 0; i < 100; i++)

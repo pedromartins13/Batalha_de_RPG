@@ -13,6 +13,7 @@ public:
 
     Mochila(int qnt_cura, Pocao *cura, int qnt_mana, Pocao *mana, int qnt_stamina, Pocao *stamina);
     Mochila();
+    //Responsável por adicionar mais poções na Mochila;
     void adicionarItens(Pocao *Item, int qnt);
 };
 

@@ -77,9 +77,9 @@ Inimigos::Inimigos(std::string _nome, Classe *_classe)
     {
 
         this->setClasse(_classe);
-        this->setAtaque(this->getLVL() * 45 * this->getClasse()->getMFOR());
-        this->setDefesa(this->getLVL() * 60 * this->getClasse()->getMDES());
-        this->setVida(this->getLVL() * 250 * this->getClasse()->getMCON());
+        this->setAtaque(this->getLVL() * 50 * this->getClasse()->getMFOR());
+        this->setDefesa(this->getLVL() * 100* this->getClasse()->getMDES());
+        this->setVida(this->getLVL() * 1000 * this->getClasse()->getMCON());
         this->setStamina(1000);
         this->setMana(1000);
     }

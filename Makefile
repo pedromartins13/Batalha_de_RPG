@@ -18,9 +18,13 @@ Turno:
 	$(CC) $(CFLAGS) -c src/Turno.cpp -o build/Turno.o
 Robo:
 	$(CC) $(CFLAGS) -c src/Robo.cpp -o build/Robo.o
+Itens:
+	$(CC) $(CFLAGS) -c src/Itens.cpp -o build/Itens.o
+Mochila:
+	$(CC) $(CFLAGS) -c src/Mochila.cpp -o build/Mochila.o
 
-main: Classe Personagem Interface Inimigos Turno Robo
-	$(CC) $(CFLAGS) build/Classe.o build/Personagem.o build/Interface.o build/Inimigos.o build/Turno.o build/Robo.o src/main.cpp -o $(TARGET)
+main: Classe Personagem Interface Inimigos Turno Robo Itens Mochila
+	$(CC) $(CFLAGS) build/Classe.o build/Personagem.o build/Interface.o build/Inimigos.o build/Turno.o build/Robo.o build/Mochila.o build/Itens.o src/main.cpp -o $(TARGET)
 
 clean:
 	$(RM) -r $(BUILD)/* $(TARGET)

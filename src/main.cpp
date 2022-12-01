@@ -73,7 +73,7 @@ int main()
                     Jogador.ConfiguracoesIniciais();
                     break;
                 }
-                if (Lista_Inimigos[i]->getNome() == "Dragao")
+                if (Lista_Inimigos[i]->getNome() == "Dragão")
                 {
                     LutaFinal(Lista_Inimigos[i], &Jogador);
                 }

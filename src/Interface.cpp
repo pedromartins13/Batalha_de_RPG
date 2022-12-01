@@ -126,7 +126,7 @@ void LimparTela()
 
 void Pausar()
 {
-    sleep(1);
+    sleep(3);
 }
 
 int usarMochila(Personagem *_jogador)
